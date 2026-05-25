@@ -13,137 +13,7 @@
       href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&amp;display=swap"
       rel="stylesheet"
     />
-    <style>
-      .material-symbols-outlined {
-        font-variation-settings:
-          "FILL" 0,
-          "wght" 400,
-          "GRAD" 0,
-          "opsz" 24;
-      }
-      .glass-card {
-        background: rgba(21, 32, 49, 0.4);
-        -webkit-backdrop-filter: blur(20px);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        position: relative;
-        overflow: hidden;
-      }
-      /* Shimmer Effect for Glassmorphism */
-      .glass-card::after {
-        content: "";
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: linear-gradient(
-          45deg,
-          transparent 0%,
-          rgba(255, 255, 255, 0.03) 30%,
-          rgba(255, 255, 255, 0.08) 50%,
-          rgba(255, 255, 255, 0.03) 70%,
-          transparent 100%
-        );
-        transform: rotate(45deg);
-        transition: transform 0.6s ease;
-        pointer-events: none;
-      }
-      .glass-card:hover::after {
-        transform: rotate(45deg) translate(20%, 20%);
-      }
-
-      .text-gradient {
-        background: linear-gradient(135deg, #b4c5ff 0%, #2563eb 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      body {
-        font-family: "beVietnamPro", sans-serif;
-        scroll-behavior: smooth;
-      }
-
-      /* Animated Mesh Gradient Background */
-      .mesh-bg {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        background-color: #081425;
-        background-image:
-          radial-gradient(at 0% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
-          radial-gradient(
-            at 50% 0%,
-            hsla(225, 100%, 20%, 1) 0,
-            transparent 50%
-          ),
-          radial-gradient(
-            at 100% 0%,
-            hsla(225, 39%, 30%, 1) 0,
-            transparent 50%
-          ),
-          radial-gradient(
-            at 50% 50%,
-            hsla(225, 100%, 10%, 1) 0,
-            transparent 50%
-          ),
-          radial-gradient(
-            at 0% 100%,
-            hsla(225, 39%, 30%, 1) 0,
-            transparent 50%
-          ),
-          radial-gradient(
-            at 100% 100%,
-            hsla(225, 39%, 30%, 1) 0,
-            transparent 50%
-          );
-        background-size: 200% 200%;
-        animation: meshAnimation 15s ease infinite;
-      }
-
-      @keyframes meshAnimation {
-        0% {
-          background-position: 0% 0%;
-        }
-        50% {
-          background-position: 100% 100%;
-        }
-        100% {
-          background-position: 0% 0%;
-        }
-      }
-
-      /* Entrance Animations */
-      .reveal {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-      .reveal.active {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* Particle Canvas Styling */
-      #particle-canvas {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-      }
-
-      /* Nav Glass Enhancement */
-      header.scrolled {
-        background: rgba(8, 20, 37, 0.9);
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-        border-bottom: 1px solid rgba(180, 197, 255, 0.2);
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
     <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -264,30 +134,32 @@
       id="main-nav"
     >
       <div class="text-headline-md font-bold tracking-tighter text-primary">
-        MASTERY
+        Djawad GH
       </div>
+
       <nav class="hidden md:flex items-center gap-8 mx-auto">
         <a
-          href="#"
+          href="#main"
           class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
           >الرئيسية</a
         >
         <a
-          href="#"
+          href="#works"
           class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
           >أعمالي</a
         >
         <a
-          href="#"
+          href="#services"
           class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
           >خدماتي</a
         >
         <a
-          href="#"
+          href="#contact"
           class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md"
           >تواصل</a
         >
       </nav>
+
       <div class="flex items-center gap-4">
         <button
           type="button"
@@ -295,13 +167,15 @@
         >
           menu
         </button>
-        <span class="text-label-md font-label-md text-primary font-bold"
+        <!-- <span class="text-label-md font-label-md text-primary font-bold"
           >AR</span
-        >
+        > -->
       </div>
     </header>
+    
     <!-- Hero Section -->
     <section
+      id="main"
       class="relative pt-32 pb-24 px-6 md:px-margin-desktop overflow-hidden"
     >
       <canvas id="particle-canvas" width="1280" height="588"></canvas>
@@ -345,8 +219,10 @@
         </div>
       </div>
     </section>
+
     <!-- Services Section -->
     <section
+      id="services"
       class="py-24 px-6 md:px-margin-desktop bg-surface-container-low/50 backdrop-blur-sm"
     >
       <div class="mb-16 text-center reveal active">
@@ -428,6 +304,7 @@
         </div>
       </div>
     </section>
+
     <!-- Why Choose Me -->
     <section class="py-24 px-6 md:px-margin-desktop">
       <div class="flex flex-col md:flex-row items-center gap-12">
@@ -551,8 +428,10 @@
         </div>
       </div>
     </section>
+
     <!-- Portfolio Showcase -->
     <section
+      id="works"
       class="py-24 px-6 md:px-margin-desktop bg-surface-container/30 backdrop-blur-sm"
     >
       <div class="mb-16 reveal active">
@@ -561,99 +440,153 @@
           مختارات من مشاريعنا الأخيرة
         </p>
       </div>
+
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- Portfolio Item 1 -->
-        <div
+        <a
+          href="https://www.youtube.com/shorts/WrjRy2x9lkU"
+          target="_blank"
+          rel="noopener noreferrer"
           class="group relative rounded-24 overflow-hidden glass-card h-80 reveal hover:scale-[1.02] transition-transform duration-500 active"
         >
           <img
             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             alt="A dynamic action sequence still from a high-quality short-form video advertisement. The visual style is vibrant and energetic, using high contrast and saturated electric blue and orange lighting. The shot is framed artistically to capture motion blur, reflecting professional video editing techniques used in modern digital commercials."
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRxpxigk5i7gbN_hi9bBx1LfAlf4y2-m16afQhqbJm2oj9vY9nupo-z_8xd5YqwKvqhemYhQRqxW07WDQCmsLZaFa6CLz7Z69-lmHIKqs_7KZvCa3fMYKIjHUbcrzKkGIcmT0eZxkvpOgo2Oq1LF0B9v770GBv0JAX361cbSD9VxyZhIjkEBQtCd-bZYACyFnXagWld0Bb3TKT7q2S6BlKlYpZIUqzAaFO9XYTTVDVzNA3kkzm4UyjRdUOiSwG0CeKAg17hOoRczo"
+            src="https://img.youtube.com/vi/WrjRy2x9lkU/maxresdefault.jpg"
           />
+
           <div
             class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8"
           >
             <span class="text-primary font-label-md text-label-md mb-2"
-              >ADS &amp; COMMERCIAL</span
+              >AD &amp; COMMERCIAL</span
             >
-            <h3 class="text-on-background font-headline-md">
+            <!-- <h3 class="text-on-background font-headline-md">
               حملة إطلاق المنتج X
-            </h3>
+            </h3> -->
           </div>
+
           <div
             class="absolute top-4 right-4 bg-primary px-3 py-1 rounded-full text-[10px] font-bold text-on-primary"
           >
             NEW
           </div>
-        </div>
+
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div
+              class="w-16 h-16 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center"
+            >
+              ▶
+            </div>
+          </div>
+        </a>
+
         <!-- Portfolio Item 2 -->
-        <div
+        <a
+          href="https://www.youtube.com/shorts/ZOGDNXfxJKY"
+          target="_blank"
+          rel="noopener noreferrer"
           class="group relative rounded-24 overflow-hidden glass-card h-80 reveal hover:scale-[1.02] transition-transform duration-500 active"
         >
           <img
             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             alt="A side-by-side comparison visualization of professional color grading. The left side shows flat, raw cinematic footage from a professional camera, while the right side shows the final vibrant, high-contrast, color-corrected version with deep blues and warm highlights. The aesthetic is clean and demonstrates mastery over visual aesthetics in a professional editing suite."
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuArrzFVtgVfbGFS0mGWIY5r2eLUOtE_C_qmgRGOlzeX_v26_Tq6cgs--cZtqIZx1PzBitvSzp3JEFUxgamyE64OtmmZE_FRVAACFeCUzFVinUCbVeIYiMd_NFLc4J66kAkfk71i6LNuDGYUReL-nPi5TXKJf_Tm0Zi1AwWfKyvlzZbubr3rBEoXWPrQiDAyCJXWWOT_07-dqsYvbYZvOrw3CcEB_-H8V_EPWEwOII5gvvtozSXwjI3uSQvb0d6ccJ26LghSCA8914U"
+            src="https://img.youtube.com/vi/ZOGDNXfxJKY/maxresdefault.jpg"
           />
+
           <div
             class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8"
           >
             <span class="text-primary font-label-md text-label-md mb-2"
-              >COLOR GRADING</span
+              >AIRBNB</span
             >
-            <h3 class="text-on-background font-headline-md">
+            <!-- <h3 class="text-on-background font-headline-md">
               تصحيح ألوان احترافي
-            </h3>
+            </h3> -->
           </div>
-          <div
+          
+          <!-- <div
             class="absolute top-4 left-4 glass-card px-4 py-2 rounded-xl text-xs font-bold border border-white/20"
           >
             Before / After
+          </div> -->
+
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div
+              class="w-16 h-16 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center"
+            >
+              ▶
+            </div>
           </div>
-        </div>
+        </a>
+
         <!-- Portfolio Item 3 -->
-        <div
+        <a
+          href="https://www.youtube.com/shorts/6YLKqsQyc2Y"
+          target="_blank"
+          rel="noopener noreferrer"
           class="group relative rounded-24 overflow-hidden glass-card h-80 reveal hover:scale-[1.02] transition-transform duration-500 active"
         >
           <img
             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             alt="A montage of stylized social media reels featuring high-speed cuts and vibrant typography overlays. The lighting is bright and modern, with a focus on high-energy transitions. The overall look is polished and optimized for mobile viewing, showcasing current trends in short-form video content creation and professional editing."
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQ0Nps5Imr_WH4kBxlapI8-cXl406lRgqDapOhk3wLubU9cqVKHjhsHhRfb4BpzJrWqIKQdgVcSGAgvzoMrA_DpL4kUM4EL56kpwv9j_fuoPyntHho-cBxMDMs0WShgQ0NLftmGCD1pi3TTzGSwBQcN_rBIEU39piRhShIRcSrzj3MjTyMyeuF7GjGC1hiDiDs2Oy7C9ERGjQSBW6pBU7hio2hEvJ7-zdorLSGjQkPL167FSeDNSwXHRzJTRNebDSp63BVE9LPPXM"
+            src="https://img.youtube.com/vi/6YLKqsQyc2Y/maxresdefault.jpg"
           />
+
           <div
             class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8"
           >
             <span class="text-primary font-label-md text-label-md mb-2"
-              >REELS</span
+              >THE PODCAST GUY</span
             >
-            <h3 class="text-on-background font-headline-md">
+            <!-- <h3 class="text-on-background font-headline-md">
               مجموعة ريلز تيك توك
-            </h3>
+            </h3> -->
           </div>
-        </div>
+
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div
+              class="w-16 h-16 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center"
+            >
+              ▶
+            </div>
+          </div>
+        </a>
+
         <!-- Portfolio Item 4 -->
-        <div
+        <a
+          href="https://www.youtube.com/shorts/cjhEiIIBM78"
+          target="_blank"
+          rel="noopener noreferrer"
           class="group relative rounded-24 overflow-hidden glass-card h-80 reveal hover:scale-[1.02] transition-transform duration-500 active"
         >
           <img
             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             alt="An atmospheric indoor setting for a high-end YouTube video production. Professional lighting setups like softboxes and rim lights are visible in the background, creating a moody and focused environment. The style is clean, sharp, and indicative of top-tier production quality for online educational and lifestyle content."
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHuD5ZUo8Nr-X9z1DEq-YQmxJB6dGWoyxBCR0YsgzJceJLq8Sg1k7tORLluRG2ns0V1ZsGyj61yt0MbpfXzTDP2VssoJjDpPimX9ahkbqAs3KhW-NOGOGyxu7Gg0rddIzywItHHOkdeZt9XrV1IOXiUA1jVwhSGDiInsjJVRr5N0-Ifm9kliZ7lBwld4rYxcd8XQIIYQMCeBmKdLd8JNXDkF-1MG2iENg_RxuIKmiMhEF4j7hf8gbwJfoKectgRTIjADD6QGyrcps"
+            src="https://img.youtube.com/vi/cjhEiIIBM78/maxresdefault.jpg"
           />
           <div
             class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8"
           >
             <span class="text-primary font-label-md text-label-md mb-2"
-              >YOUTUBE</span
+              >MR.BEAST VIDEO EDITED</span
             >
-            <h3 class="text-on-background font-headline-md">
+            <!-- <h3 class="text-on-background font-headline-md">
               وثائقي رحلة رائد أعمال
-            </h3>
+            </h3> -->
           </div>
-        </div>
+
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div
+              class="w-16 h-16 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center"
+            >
+              ▶
+            </div>
+          </div>
+        </a>
       </div>
     </section>
+
     <!-- Process Timeline -->
     <section
       class="py-24 px-6 md:px-margin-desktop bg-surface-container-lowest/50 backdrop-blur-sm"
@@ -734,6 +667,7 @@
         </div>
       </div>
     </section>
+
     <!-- Testimonials -->
     <section class="py-24 px-6 md:px-margin-desktop overflow-hidden">
       <h2
@@ -792,8 +726,10 @@
         </div>
       </div>
     </section>
+
     <!-- Contact Section -->
     <section
+      id="contact"
       class="py-24 px-6 md:px-margin-desktop bg-surface-container-high rounded-t-[40px] reveal active"
     >
       <div class="max-w-4xl mx-auto text-center mb-16">
@@ -806,6 +742,7 @@
           تواصل معنا اليوم لتحويل رؤيتك إلى واقع بصري مذهل.
         </p>
       </div>
+
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
         <div class="space-y-8">
           <div
@@ -837,7 +774,8 @@
             </div>
           </div>
         </div>
-        <form class="glass-card p-8 rounded-24 space-y-6 reveal active">
+
+        <!-- <form class="glass-card p-8 rounded-24 space-y-6 reveal active">
           <div>
             <label
               class="block font-label-md text-label-md text-on-surface-variant mb-2"
@@ -880,9 +818,10 @@
           >
             إرسال الطلب
           </button>
-        </form>
+        </form> -->
       </div>
     </section>
+
     <!-- Footer -->
     <footer
       class="bg-surface-container-lowest py-section-gap border-t border-white/5 flex flex-col md:flex-row-reverse justify-between items-center px-margin-desktop gap-unit"
@@ -904,133 +843,52 @@
         >
       </div>
     </footer>
+
     <!-- BottomNavBar (Mobile Only) -->
     <nav
       class="fixed bottom-0 left-0 w-full z-50 flex flex-row-reverse justify-around items-center py-3 px-4 bg-surface-container/60 backdrop-blur-2xl border-t border-white/10 md:hidden rounded-t-xl shadow-2xl"
     >
-      <div
+      <a
+        href="#main"
         class="flex flex-col items-center justify-center text-primary bg-primary-container/20 rounded-xl px-4 py-2 transition-all duration-200"
       >
         <span class="material-symbols-outlined">home</span>
         <span class="font-label-md text-label-md mt-1">الرئيسية</span>
-      </div>
-      <div
+      </a>
+
+      <a
+        href="#works"
         class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-white/5 transition-all"
       >
         <span class="material-symbols-outlined">movie_filter</span>
         <span class="font-label-md text-label-md mt-1">أعمالي</span>
-      </div>
-      <div
+      </a>
+
+      <a
+        href="#services"
         class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-white/5 transition-all"
       >
         <span class="material-symbols-outlined">auto_awesome</span>
         <span class="font-label-md text-label-md mt-1">خدماتي</span>
-      </div>
-      <div
+      </a>
+
+      <a
+        href="#contact"
         class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:bg-white/5 transition-all"
       >
         <span class="material-symbols-outlined">contact_support</span>
         <span class="font-label-md text-label-md mt-1">تواصل</span>
-      </div>
+      </a>
     </nav>
+
     <!-- Floating Action Button -->
-    <button
+    <!-- <button
+      type="button"
       class="fixed bottom-24 right-6 w-14 h-14 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center shadow-2xl z-40 md:hidden hover:scale-110 active:scale-95 transition-transform"
     >
       <span class="material-symbols-outlined">add</span>
-    </button>
-    <script>
-      // 1. Entrance Animations with IntersectionObserver
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      };
+    </button> -->
 
-      const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-          }
-        });
-      }, observerOptions);
-
-      document
-        .querySelectorAll(".reveal")
-        .forEach((el) => revealObserver.observe(el));
-
-      // 2. Particle Effect in Hero Section
-      const canvas = document.getElementById("particle-canvas");
-      const ctx = canvas.getContext("2d");
-      let particles = [];
-
-      function resizeCanvas() {
-        canvas.width = canvas.parentElement.offsetWidth;
-        canvas.height = canvas.parentElement.offsetHeight;
-      }
-
-      window.addEventListener("resize", resizeCanvas);
-      resizeCanvas();
-
-      class Particle {
-        constructor() {
-          this.reset();
-        }
-        reset() {
-          this.x = Math.random() * canvas.width;
-          this.y = Math.random() * canvas.height;
-          this.size = Math.random() * 2 + 0.5;
-          this.speedX = Math.random() * 0.5 - 0.25;
-          this.speedY = Math.random() * 0.5 - 0.25;
-          this.opacity = Math.random() * 0.5 + 0.1;
-        }
-        update() {
-          this.x += this.speedX;
-          this.y += this.speedY;
-          if (
-            this.x < 0 ||
-            this.x > canvas.width ||
-            this.y < 0 ||
-            this.y > canvas.height
-          ) {
-            this.reset();
-          }
-        }
-        draw() {
-          ctx.fillStyle = `rgba(180, 197, 255, ${this.opacity})`;
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-          ctx.fill();
-        }
-      }
-
-      function initParticles() {
-        particles = [];
-        for (let i = 0; i < 50; i++) {
-          particles.push(new Particle());
-        }
-      }
-
-      function animateParticles() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach((p) => {
-          p.update();
-          p.draw();
-        });
-        requestAnimationFrame(animateParticles);
-      }
-
-      initParticles();
-      animateParticles();
-
-      // 3. Navbar scroll effect
-      window.addEventListener("scroll", () => {
-        const nav = document.getElementById("main-nav");
-        if (window.scrollY > 50) {
-          nav.classList.add("scrolled");
-        } else {
-          nav.classList.remove("scrolled");
-        }
-      });
-    </script>
+    <script type="module" src="main.js"></script>
   </body>
 </html>
